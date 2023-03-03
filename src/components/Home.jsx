@@ -50,13 +50,13 @@ const Home = () => {
 
     return (
         <>
-            <div className="flex border border-red-100">
+            <div className="flex">
+
                 <Sidebar />
 
                 <div className="w-screen">
 
                     {/* Container */}
-
                     <div className=" max-h-screen overflow-y-scroll">
                         <div className="bg-slate-700 border rounded-lg border-teal-500 m-4 p-4">
                             <AddTarea />

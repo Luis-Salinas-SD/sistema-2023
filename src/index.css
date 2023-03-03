@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.img-log{
+    background-image: url('/src/assets/img/Vector.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}

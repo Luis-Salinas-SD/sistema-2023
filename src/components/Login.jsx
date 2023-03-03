@@ -1,5 +1,6 @@
 import logo from "../assets/img/logo.png";
 import login from "../assets/img/login.jpg";
+import Vector from "../assets/img/Vector.png";
 import { auth } from "../../credenciales";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { async } from "@firebase/util";
@@ -29,8 +30,8 @@ function Login() {
     return (
 
 
-        <div className=" h-screen grid grid-cols-1 md:grid-cols-12">
-            <div className="col-span-1 md:col-span-3 ">
+        <div className="h-screen grid grid-cols-1 md:grid-cols-12">
+            <div className="col-span-1 md:col-span-3 img-log">
                 <div className="flex justify-center items-center img-form h-screen">
                     <div className="px-3 py-0">
                         {/* Logo */}
