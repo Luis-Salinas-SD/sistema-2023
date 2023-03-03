@@ -54,7 +54,7 @@ const Home = () => {
 
                 <Sidebar />
 
-                <div className="w-screen">
+                <div className="w-full xl:pl-96">
 
                     {/* Container */}
                     <div className=" max-h-screen overflow-y-scroll">
