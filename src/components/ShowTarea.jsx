@@ -1,12 +1,10 @@
 import React from "react";
 
 const showTarea = ({ info }) => {
-
-
     return (
         <>
             <h2 className="text-teal-500 text-2xl text-center">Información de los proyectos</h2>
-            {info.map(function (obj) {
+            {info.map((obj) => {
                 return (
                     <>
                         <div className="flex bg-slate-600 border rounded-lg border-teal-500 m-4 p-4">

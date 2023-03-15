@@ -4,7 +4,7 @@ import './index.css'
 import Auth from "./Auth";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Auth />
-  </React.StrictMode>
+
+  <Auth />
+
 )

@@ -18,11 +18,13 @@ function Auth() {
             setUsuarioGlobal(user)
         } else {
             //codio en caso de que el usuario no este logueado
+            setUsuarioGlobal(null)
+            console.info('No esta logueado');
         }
 
     })
     //#Retornamos la interfaz en caso de que sea true o null.
-    return <>{usuarioGlobal ? <Home /> : <Login />}</>
+    return <>{usuarioGlobal ? <Home correoUser={usuarioGlobal.email} /> : <Login />}</>
 }
 
 export default Auth

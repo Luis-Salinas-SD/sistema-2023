@@ -2,7 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
-import { getStorage } from "firebase/storage";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -24,7 +24,7 @@ const cerolinealApp = initializeApp(firebaseConfig);
 //const analytics = getAnalytics(app);
 
 //# Exportamos la aplicación de autenticación para poder ser utilizada en los otros archivos de la siguiente manera:
-export const auth = getAuth(cerolinealApp)
+export const auth = getAuth(cerolinealApp);
 
 //! Exportamos la aplicación de almacenamiento para poder ser utilizada en los otros archivos de la siguiente manera:
-export const almacen = getStorage(cerolinealApp)
+export const almacen = getFirestore(cerolinealApp);
