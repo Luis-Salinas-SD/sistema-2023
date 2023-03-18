@@ -1,8 +1,9 @@
 import React from "react";
 import jsPDF from "jspdf";
-import { useState } from "react";
-
-const showTarea = ({ info }) => {
+import { almacen } from "../../credenciales";
+import { getFirestore, updateDoc, doc } from "firebase/firestore";
+const showTarea = ({ info, setArrayProyectos, correoUser }) => {
+  //console.log(info);
   //hooks
 
   const getDatos = (
@@ -38,14 +39,29 @@ const showTarea = ({ info }) => {
     doc.save(`Proyecto-${company}.pdf`);
   };
 
+  //Eliminar Proyecto
+  async function eliminarProyect (id) {
+    //crear nuevo array de proyectos
+    const arrayProyects = info.filter((objProyect) => {
+      return objProyect.id !== id;
+    }); //filter-end
+
+    //Actualizar la base de datos
+    //- Generamos la referencia al docuemnto
+    const docRefe = doc(almacen, `usuarios/${correoUser}`);
+    updateDoc(docRefe, { proyecto: [...arrayProyects]});
+    setArrayProyectos(arrayProyects);
+  };
+
   return (
     <>
       <h2 className="text-teal-500 text-2xl text-center">
         Información de los proyectos
       </h2>
-      {info.map((obj, folio) => {
+      {info.map((obj) => {
         //creamos un obj
         const card = {
+          id: obj.id,
           url: obj.url,
           db: obj.database,
           userdb: obj.dbuser,
@@ -57,8 +73,9 @@ const showTarea = ({ info }) => {
           company: obj.empresa,
           img: obj.imagen,
         };
-
+        //Destructuración
         const {
+          id,
           url,
           db,
           userdb,
@@ -133,7 +150,7 @@ const showTarea = ({ info }) => {
               <section>
                 <div className="mb-2">
                   <button
-                    className="bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded"
+                    className="bg-green-400 hover:bg-green-600 text-white font-bold py-2 px-4 rounded m-3"
                     onClick={(event) => {
                       getDatos(
                         url,
@@ -150,6 +167,12 @@ const showTarea = ({ info }) => {
                     }}
                   >
                     Generar PDF
+                  </button>
+                  <button
+                    className="bg-red-400 hover:bg-red-600 text-white font-bold py-2 px-4 rounded m-3"
+                    onClick={(e) => eliminarProyect(id)}
+                  >
+                    Eliminar
                   </button>
                 </div>
               </section>
